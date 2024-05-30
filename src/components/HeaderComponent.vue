@@ -49,11 +49,6 @@ header {
     text-align: right;
 }
 
-ul li {
-    list-style-type: none;
-    display: inline-block;
-}
-
 a {
     color: white;
     text-decoration: none;
