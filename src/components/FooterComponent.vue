@@ -22,11 +22,11 @@ export default {
                     <h5>Trovaci anche su:</h5>
                     <div class="footer-list">
                         <ul>
-                            <li> <span><i class="fab fa-twitter"></i></span></li>
-                            <li> <span><i class="fab fa-facebook-f"></i></span></li>
-                            <li> <span><i class="fab fa-instagram"></i></span></li>
-                            <li> <span><i class="fab fa-pinterest"></i></span></li>
-                            <li> <span><i class="fab fa-youtube"></i></span></li>
+                            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-pinterest-square" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
                         </ul>
                     </div>
                 </div>
@@ -35,10 +35,12 @@ export default {
     </footer>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../src/assets/styles/main' as *;
+
 footer {
     background-color: black;
-    color: white;
+    color: $cl-link;
     padding: 30px 0;
 }
 

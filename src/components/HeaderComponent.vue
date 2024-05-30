@@ -25,9 +25,9 @@ export default {
                 <div class="col-33 text-right">
                     <div class="header-list">
                         <ul>
-                            <li><a href="#"><i class="fas fa-user"></i></a></li>
-                            <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fas fa-bag-shopping"></i></a></li>
+                            <li><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -36,11 +36,13 @@ export default {
     </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../src/assets/styles/main' as *;
+
 header {
     position: fixed;
     width: 100%;
-    background-color: rgb(255, 94, 0);
+    background-color: $bg-header;
     z-index: 1;
     padding-top: 10px;
 }
@@ -50,7 +52,7 @@ header {
 }
 
 a {
-    color: white;
+    color: $cl-link;
     text-decoration: none;
 }
 
