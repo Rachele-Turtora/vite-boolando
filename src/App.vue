@@ -1,13 +1,18 @@
 <script>
+import HeaderComponent from './components/HeaderComponent.vue';
 
+export default {
+  name: "MyApp",
+  components: {
+    HeaderComponent
+  }
+}
 </script>
 
-<template></template>
+<template>
+  <HeaderComponent />
+</template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use '../src/assets/styles/main.scss';
-
-h1 {
-  color: red;
-}
 </style>
