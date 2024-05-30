@@ -51,8 +51,8 @@ export default {
                     sustainability: false,
                     brand: "Maya Deluxe",
                     description: "stripe bodice",
-                    newPrice: null,
-                    oldPrice: "99,99"
+                    newPrice: "99,99",
+                    oldPrice: null
                 },
                 {
                     mainImg: "../../img/6.webp",
@@ -61,8 +61,8 @@ export default {
                     sustainability: true,
                     brand: "Esprit",
                     description: "maglione - black",
-                    newPrice: null,
-                    oldPrice: "29,99"
+                    newPrice: "29,99",
+                    oldPrice: null
                 }
             ]
         }
@@ -87,8 +87,8 @@ export default {
                     <div class="caption">
                         <p class="brand"> {{ card.brand }} </p>
                         <h3> {{ card.description }} </h3>
-                        <span v-show="card.discount" class="new-price">{{ card.newPrice }} &euro;</span>
-                        <span class="old-price">{{ card.oldPrice }} &euro;</span>
+                        <span class="new-price">{{ card.newPrice }} &euro;</span>
+                        <span v-show="card.discount" class="old-price">{{ card.oldPrice }} &euro;</span>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,9 @@ export default {
     </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../src/assets/styles/main' as *;
+
 .content {
     position: relative;
 }
@@ -108,15 +110,19 @@ export default {
     position: absolute;
     top: 10px;
     right: 0;
+
+    &:hover {
+        color: red;
+    }
 }
 
 .discount {
-    background-color: red;
+    background-color: $cl-discount;
     left: 0;
 }
 
 .sustainability {
-    background-color: green;
+    background-color: $cl-sustainability;
     left: 60px;
 }
 
@@ -142,25 +148,19 @@ h3 {
 .old-price {
     text-decoration: line-through;
     font-size: 18px;
+    margin-left: 10px;
 }
 
 .img6 {
     left: 0;
 }
 
-.hidden-image {
-    display: none;
-}
-
+.hidden-image,
 .content:hover .main-image {
     display: none;
 }
 
 .content:hover .hidden-image {
     display: inline-block;
-}
-
-.heart:hover {
-    color: red;
 }
 </style>

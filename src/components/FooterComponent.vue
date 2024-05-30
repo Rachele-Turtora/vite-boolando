@@ -39,7 +39,7 @@ export default {
 @use '../src/assets/styles/main' as *;
 
 footer {
-    background-color: black;
+    background-color: $bg-footer;
     color: $cl-link;
     padding: 30px 0;
 }
