@@ -7,6 +7,16 @@ export default {
             products: products.products,
         }
     },
+    methods: {
+        findBadge(product, badgeType) {
+            return product.badges.find(badge => badge.type === badgeType)
+        },
+        newPrice(discount, oldPrice) {
+            const numDiscount = Number(discount.slice(1, 3))
+            const newPrice = (oldPrice * (100 - numDiscount) / 100).toFixed(2)
+            return newPrice
+        }
+    }
 }
 </script>
 
@@ -15,18 +25,24 @@ export default {
         <div class="row">
             <div class="col-33" v-for="(product, i) in products" :key="product.id">
                 <div class="content">
-                    <img :src="`../assets/img/${product.frontImage}`" class="main-image" alt="img">
-                    <img :src="`../assets/img/${product.backImage}`" class="hidden-image" alt="imgb">
+                    <img :src="`/img/${product.frontImage}`" class="main-image" alt="img">
+                    <img :src="`/img/${product.backImage}`" class="hidden-image" alt="imgb">
                     <div class="heart" v-if="product.isInFavorites">&hearts;</div>
-                    <div v-if="product.badges[1]" class="label discount"> {{ product.badges[1].value }} </div>
-                    <div v-if="product.badges[0]" class="label sustainability">
-                        {{ product.badges[0].value }}</div>
+                    <div v-if="findBadge(product, 'discount')" class="label discount"> {{
+                        findBadge(product, 'discount').value }} </div>
+                    <div v-if="findBadge(product, 'tag')" class="label sustainability"
+                        :class="{ img6: i === products.length - 1 }">
+                        {{ findBadge(product, 'tag').value }}</div>
                 </div>
                 <div class="caption">
                     <p class="brand"> {{ product.brand }} </p>
                     <h3> {{ product.name }} </h3>
-                    <span class="new-price">{{ }} &euro;</span>
-                    <!--<span v-show="product.badges.value" class="old-price">{{ product.price }} &euro;</span>-->
+                    <span v-if="findBadge(product, 'discount')" class="new-price">{{
+                        newPrice(findBadge(product, 'discount').value, product.price) }}
+                        &euro;</span>
+                    <span class="new-price" v-else> {{ product.price }} </span>
+                    <span v-show="findBadge(product, 'discount')" class="old-price">{{
+                        product.price }} &euro;</span>
                 </div>
             </div>
         </div>
@@ -47,10 +63,7 @@ export default {
     position: absolute;
     top: 10px;
     right: 0;
-
-    &:hover {
-        color: red;
-    }
+    color: red;
 }
 
 .discount {
@@ -80,6 +93,7 @@ h3 {
 .new-price {
     color: red;
     font-size: 18px;
+    font-weight: bolder;
 }
 
 .old-price {
