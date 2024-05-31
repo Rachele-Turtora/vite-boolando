@@ -1,6 +1,11 @@
 <script>
+import IconsFooter from './IconsFooter.vue';
+
 export default {
-    name: "Footer"
+    name: "Footer",
+    components: {
+        IconsFooter
+    }
 }
 </script>
 
@@ -19,16 +24,7 @@ export default {
                     </div>
                 </div>
                 <div class="col-15">
-                    <h5>Trovaci anche su:</h5>
-                    <div class="footer-list">
-                        <ul>
-                            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-pinterest-square" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-youtube-play" aria-hidden="true"></i></li>
-                        </ul>
-                    </div>
+                    <IconsFooter />
                 </div>
             </div>
         </div>
@@ -44,7 +40,7 @@ footer {
     padding: 30px 0;
 }
 
-ul li {
+:deep(ul li) {
     font-size: 13px;
     padding-top: 10px;
     padding-right: 10px;
