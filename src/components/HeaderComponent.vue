@@ -1,6 +1,12 @@
 <script>
 export default {
-    name: "Header"
+    name: "Header",
+    data() {
+        return {
+            listLink: ["Donna", "Uomo", "Bambini"],
+            listIcon: ["fa-user-o", "fa-heart-o", "fa-shopping-bag"]
+        }
+    }
 }
 </script>
 
@@ -11,9 +17,7 @@ export default {
                 <div class="col-33">
                     <div class="header-list">
                         <ul>
-                            <li><a href="#">Donna</a></li>
-                            <li><a href="#">Uomo</a></li>
-                            <li><a href="#">Bambini</a></li>
+                            <li v-for="link in listLink"><a href="#"> {{ link }} </a></li>
                         </ul>
                     </div>
                 </div>
@@ -25,9 +29,8 @@ export default {
                 <div class="col-33 text-right">
                     <div class="header-list">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></li>
+                            <li v-for="icon in listIcon"><a href="#"><i :class="`fa ${icon}`" aria-hidden="true"></i></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
