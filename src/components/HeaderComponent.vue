@@ -1,6 +1,10 @@
 <script>
+import AppLogo from "./AppLogo.vue"
 export default {
     name: "Header",
+    components: {
+        AppLogo
+    },
     data() {
         return {
             listLink: ["Donna", "Uomo", "Bambini"],
@@ -22,9 +26,7 @@ export default {
                     </div>
                 </div>
                 <div class="col-33">
-                    <div class="logo">
-                        <img src="../../img/boolean-logo.png" alt="logo">
-                    </div>
+                    <AppLogo />
                 </div>
                 <div class="col-33 text-right">
                     <div class="header-list">
@@ -62,10 +64,5 @@ a {
 .header-list ul li {
     font-size: 20px;
     padding: 0 10px;
-}
-
-.logo {
-    width: 40%;
-    margin: 0 auto;
 }
 </style>

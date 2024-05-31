@@ -1,6 +1,6 @@
 <script>
 import HeaderComponent from './components/HeaderComponent.vue';
-import MainComponent from './components/MainComponent.vue';
+import ProductsList from './components/ProductsList.vue';
 import FooterComponent from './components/FooterComponent.vue';
 
 export default {
@@ -8,14 +8,16 @@ export default {
   components: {
     HeaderComponent,
     FooterComponent,
-    MainComponent
+    ProductsList
   }
 }
 </script>
 
 <template>
   <HeaderComponent />
-  <MainComponent />
+  <main>
+    <ProductsList />
+  </main>
   <FooterComponent />
 </template>
 

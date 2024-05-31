@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "Main",
+    name: "ProductsList",
     data() {
         return {
             cards: [
@@ -71,29 +71,27 @@ export default {
 </script>
 
 <template>
-    <main>
-        <div class="container" id="container">
-            <div class="row">
-                <div class="col-33" v-for="(card, i) in  cards ">
-                    <div class="content">
-                        <img :src="card.mainImg" class="main-image" alt="img1">
-                        <img :src="card.hiddenImg" class="hidden-image" alt="img1b">
-                        <div class="heart">&hearts;</div>
-                        <div v-show="card.discount" class="label discount"> {{ card.discount }} </div>
-                        <div v-show="card.sustainability" class="label sustainability"
-                            :class="{ img6: i === cards.length - 1 }">
-                            Sostenibilità</div>
-                    </div>
-                    <div class="caption">
-                        <p class="brand"> {{ card.brand }} </p>
-                        <h3> {{ card.description }} </h3>
-                        <span class="new-price">{{ card.newPrice }} &euro;</span>
-                        <span v-show="card.discount" class="old-price">{{ card.oldPrice }} &euro;</span>
-                    </div>
+    <div class="container" id="container">
+        <div class="row">
+            <div class="col-33" v-for="(card, i) in  cards ">
+                <div class="content">
+                    <img :src="card.mainImg" class="main-image" alt="img1">
+                    <img :src="card.hiddenImg" class="hidden-image" alt="img1b">
+                    <div class="heart">&hearts;</div>
+                    <div v-show="card.discount" class="label discount"> {{ card.discount }} </div>
+                    <div v-show="card.sustainability" class="label sustainability"
+                        :class="{ img6: i === cards.length - 1 }">
+                        Sostenibilità</div>
+                </div>
+                <div class="caption">
+                    <p class="brand"> {{ card.brand }} </p>
+                    <h3> {{ card.description }} </h3>
+                    <span class="new-price">{{ card.newPrice }} &euro;</span>
+                    <span v-show="card.discount" class="old-price">{{ card.oldPrice }} &euro;</span>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <style scoped lang="scss">
