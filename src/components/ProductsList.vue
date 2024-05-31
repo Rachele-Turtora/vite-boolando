@@ -1,93 +1,32 @@
 <script>
+import products from '../assets/data/db.json';
 export default {
     name: "ProductsList",
     data() {
         return {
-            cards: [
-                {
-                    mainImg: "../../img/1.webp",
-                    hiddenImg: "../../img/1b.webp",
-                    discount: "-50%",
-                    sustainability: true,
-                    brand: "Levi's",
-                    description: "relaxed fit tee unisex",
-                    newPrice: "14,99",
-                    oldPrice: "29,99"
-                },
-                {
-                    mainImg: "../../img/2.webp",
-                    hiddenImg: "../../img/2b.webp",
-                    discount: "-30%",
-                    sustainability: false,
-                    brand: "Guess",
-                    description: "roses tee",
-                    newPrice: "20,99",
-                    oldPrice: "29,99"
-                },
-                {
-                    mainImg: "../../img/3.webp",
-                    hiddenImg: "../../img/3b.webp",
-                    discount: "-30%",
-                    sustainability: false,
-                    brand: "Come Zucchero Filato",
-                    description: "voglia di colori pastello",
-                    newPrice: "129,99",
-                    oldPrice: "184,99"
-                },
-                {
-                    mainImg: "../../img/4.webp",
-                    hiddenImg: "../../img/4b.webp",
-                    discount: "-50%",
-                    sustainability: true,
-                    brand: "Levi's",
-                    description: "tee unisex",
-                    newPrice: "14,99",
-                    oldPrice: "29,99"
-                },
-                {
-                    mainImg: "../../img/5.webp",
-                    hiddenImg: "../../img/5b.webp",
-                    discount: false,
-                    sustainability: false,
-                    brand: "Maya Deluxe",
-                    description: "stripe bodice",
-                    newPrice: "99,99",
-                    oldPrice: null
-                },
-                {
-                    mainImg: "../../img/6.webp",
-                    hiddenImg: "../../img/6b.webp",
-                    discount: false,
-                    sustainability: true,
-                    brand: "Esprit",
-                    description: "maglione - black",
-                    newPrice: "29,99",
-                    oldPrice: null
-                }
-            ]
+            products: products.products,
         }
-    }
+    },
 }
 </script>
 
 <template>
     <div class="container" id="container">
         <div class="row">
-            <div class="col-33" v-for="(card, i) in  cards ">
+            <div class="col-33" v-for="(product, i) in products" :key="product.id">
                 <div class="content">
-                    <img :src="card.mainImg" class="main-image" alt="img1">
-                    <img :src="card.hiddenImg" class="hidden-image" alt="img1b">
-                    <div class="heart">&hearts;</div>
-                    <div v-show="card.discount" class="label discount"> {{ card.discount }} </div>
-                    <div v-show="card.sustainability" class="label sustainability"
-                        :class="{ img6: i === cards.length - 1 }">
-                        Sostenibilità</div>
+                    <img :src="`../assets/img/${product.frontImage}`" class="main-image" alt="img">
+                    <img :src="`../assets/img/${product.backImage}`" class="hidden-image" alt="imgb">
+                    <div class="heart" v-if="product.isInFavorites">&hearts;</div>
+                    <div v-if="product.badges[1]" class="label discount"> {{ product.badges[1].value }} </div>
+                    <div v-if="product.badges[0]" class="label sustainability">
+                        {{ product.badges[0].value }}</div>
                 </div>
                 <div class="caption">
-                    <p class="brand"> {{ card.brand }} </p>
-                    <h3> {{ card.description }} </h3>
-                    <span class="new-price">{{ card.newPrice }} &euro;</span>
-                    <span v-show="card.discount" class="old-price">{{ card.oldPrice }} &euro;</span>
+                    <p class="brand"> {{ product.brand }} </p>
+                    <h3> {{ product.name }} </h3>
+                    <span class="new-price">{{ }} &euro;</span>
+                    <!--<span v-show="product.badges.value" class="old-price">{{ product.price }} &euro;</span>-->
                 </div>
             </div>
         </div>
