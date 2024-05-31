@@ -1,11 +1,5 @@
 @import './partials/variables';
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Arial", sans-serif;
-}
+@import './partials/reset';
 
 .container {
     max-width: 1200px;
@@ -32,13 +26,4 @@
 
 .col-15 {
     width: 15%;
-}
-
-img {
-    width: 100%;
-}
-
-ul li {
-    list-style-type: none;
-    display: inline-block;
 }

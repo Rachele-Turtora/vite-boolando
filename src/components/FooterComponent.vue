@@ -44,7 +44,7 @@ footer {
     padding: 30px 0;
 }
 
-.footer-list ul li {
+ul li {
     font-size: 13px;
     padding-top: 10px;
     padding-right: 10px;

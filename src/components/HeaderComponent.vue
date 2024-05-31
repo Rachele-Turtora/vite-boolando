@@ -58,10 +58,9 @@ header {
 
 a {
     color: $cl-link;
-    text-decoration: none;
 }
 
-.header-list ul li {
+li {
     font-size: 20px;
     padding: 0 10px;
 }
